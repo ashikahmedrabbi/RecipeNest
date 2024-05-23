@@ -9,16 +9,16 @@ from django.urls import path, include
 from . import views
 router = DefaultRouter() 
 
-router.register('list', views.RecipeViewSet) # router er antena
-router.register('create', views.RecipeCreateView) # router er antena
-router.register('update', views.RecipeUpdateView) # router er antena
-router.register('delete', views.RecipeDeleteView) # router er antena
+router.register('list', views.RecipeViewSet,basename='recipe_list') 
+router.register('create', views.RecipeCreateView,basename='recipe_create') 
+router.register('update', views.RecipeUpdateView,basename='recipe_update') 
+router.register('delete', views.RecipeDeleteView,basename='recipe_delete') 
 
 
-router.register('comment', views.CommentViewSet) # router er antena
-router.register('commentdelete', views.CommentDeleteView) # router er antena
-router.register('commentcreate', views.CommentCreateView) # router er antena
-router.register('commentupdate', views.CommentUpdateView) # router er antena
+router.register('comment', views.CommentViewSet,basename='comment_list') 
+router.register('commentdelete', views.CommentDeleteView,basename='comment_delete') 
+router.register('commentcreate', views.CommentCreateView,basename='comment_create') 
+router.register('commentupdate', views.CommentUpdateView,basename='comment_update') 
 
 
 urlpatterns = [
