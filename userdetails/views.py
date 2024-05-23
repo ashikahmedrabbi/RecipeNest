@@ -59,3 +59,4 @@ class LogoutView(APIView):
             'message':'logout success'
         }
         return response
+
