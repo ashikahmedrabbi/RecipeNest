@@ -7,13 +7,15 @@ from .models import User
 import jwt 
 from django.conf import settings
 import datetime
+from rest_framework import status
 
 class RegisterView(APIView):
     def post(self,request):
         serializer = userSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data)
+            return Response({'success': True, 'data': serializer.data}, status=status.HTTP_201_CREATED)
+        return Response({'success': False, 'errors': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
 class LoginView(APIView):
     def post(self,request):
